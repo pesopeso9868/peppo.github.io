@@ -21,7 +21,7 @@
 title: thine peppos
 author: peppo
 quote: Big chungus
-
+profile_pic: /assets/img/ric.png
 # Build settings
 plugins:
   - jekyll-feed

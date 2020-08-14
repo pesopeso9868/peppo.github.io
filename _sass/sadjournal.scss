@@ -73,6 +73,8 @@ header .content #user-pic{
 	display: inline-block;
 	vertical-align: top;
 	margin-right: 10px;
+	max-height: 100px;
+	max-width: 100px;
 }
 .post-content img{
 	border: 2px solid black;
