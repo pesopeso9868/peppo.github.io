@@ -1,0 +1,15 @@
+projects:
+    featured:
+      title: Garfield strip picker
+      description: It seems that you can use Garfield much faster. No age gate inside.
+      url: /garfield
+      verb: use it
+    others:
+    - title: A collaboration with a young man known as typicalname0
+      description: Making of an old era using the Hypertext Processor "PHP"
+      url: https://github.com/typicalname0/youtube-2007-recreation
+      verb: look
+    - title: Strong Sad's Litany of Crushed Hopes and Dreams
+      description: Strong Sad's blog. In Jekyll.
+      url: /sadjournal
+      verb: read

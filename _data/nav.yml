@@ -1,0 +1,14 @@
+nav:
+  - title: Home
+    url: /
+  - title: Projects
+    url: /projects/
+    subnav:
+      - title: Index
+        url: /projects/
+      - title: Garfield strip picker
+        url: /garfield/
+      - title: Strong Sad's journal
+        url: /sadjournal/
+  - title: About
+    url: /about/

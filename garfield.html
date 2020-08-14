@@ -1,0 +1,67 @@
+---
+layout: default
+---
+<style>
+	#strip{
+		width: 100%;
+	}
+</style>
+<link href="/assets/js/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet">
+<h3>simple garfield strip retriever with jQuery datepicker</h3>
+<hr>
+<div class="alert alert-primary alert-dismissible fade show" role="alert">ever since july 23 2020, the garfield comic strip images have stopped being hosted to cloudflare. let this page (and others) be a reminder of what <a class="alert-link" href="https://web.archive.org/web/20200618082915/https://garfield.com/">garfield.com</a> used to be before being sold ou*t to nick<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+<div class="form-group">
+	<label>Go to:</label>
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<button class="btn btn-secondary" type="button" id="prev">←</button>
+		</div>
+		<input type="text" class="form-control" placeholder="Enter a date" id="selector">
+		<div class="input-group-append">
+			<button class="btn btn-secondary" type="button" id="next">→</button>
+		</div>
+	</div>
+</div>
+<div class="stripcontainer">
+	<a id="striplink">
+		<img alt="Garfield comic strip" src="" id="strip">
+	</a>
+</div>
+<br>
+<a class="btn btn-primary" href="#" onclick="window.history.back()" role="button">Go back</a>
+<script src="/assets/js/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script src="/assets/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<script>
+	var trolled = jQuery.noConflict();
+	var _date = new Date();
+	function update(){
+		_date = new Date(Math.max(_date, new Date(1978, 5, 19)));
+		_date = new Date(Math.min(_date, new Date(2020, 6, 22)));
+		var year = _date.getFullYear();
+		trolled("#strip").attr("src","https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/"+year+"/"+trolled.datepicker.formatDate("yy-mm-dd", _date)+".gif");
+		trolled("#striplink").attr("href",trolled("#strip").attr("src"));
+	}
+	trolled("#selector").datepicker({
+		onSelect: function(date){
+			_date = new Date(date);
+			update();
+		},
+		dateFormat: "yy-mm-dd",
+		showAnim: "slideDown",
+		minDate: new Date(1978, 5, 19),
+		maxDate: new Date(2020, 6, 22),
+		constrainInput: true
+	});
+	trolled("#prev").click(function(){
+		_date.setDate(_date.getDate()-1);
+		trolled("#selector").datepicker("setDate", _date);
+		update();
+	});
+	trolled("#next").click(function(){
+		_date.setDate(_date.getDate()+1);
+		trolled("#selector").datepicker("setDate", _date);
+		update();
+	});
+	update();
+	trolled("#selector").datepicker("setDate", _date);
+</script>

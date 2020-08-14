@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<h2>The things I have made along the way</h2>
+<hr>
+<div class="everything">
+	
+	<featured>
+		<div class="card text-center">
+			<div class="card-header">Projet vedette</div>
+			<div class="card-body">
+				{%assign featured = site.data.projects.projects.featured%}
+				<h5 class="card-title">{{featured.title}}</h5>
+				<p class="card-text">{{featured.description}}</p>
+				<a href="{{featured.url}}" class="btn btn-primary">Go {{featured.verb}}!</a>
+			</div>
+		</div>
+	</featured>
+	<others>
+		<div class="card-columns">
+			{%for item in site.data.projects.projects.others%}
+				<div class="card text-center">
+					<div class="card-body">
+						<h5 class="card-title">{{item.title}}</h5>
+						<p class="card-text">{{item.description}}</p>
+						<a href="{{item.url}}" class="btn btn-primary">Go {{item.verb}}!</a>
+					</div>
+				</div>
+			{%endfor%}
+			<div class="card text-center">
+				<div class="card-body">
+					<h5 class="card-title">There will be more projects soon</h5>
+					<p class="card-text">Look forward to it. Thank you.</p>
+				</div>
+			</div>
+			<div class="card text-center">
+				<div class="card-body">
+					<h5 class="card-title">There will be more</h5>
+					<p class="card-text">Seemingly. There is nothing else I need to show you. Thank you.</p>
+				</div>
+			</div>
+			<div class="card text-center">
+				<div class="card-body">
+					<h5 class="card-title">I feel like there should be more to it</h5>
+					<p class="card-text">Or maybe it could just be me. Perhaps I do not make much.</p>
+				</div>
+			</div>
+		</div>
+	</others>
+	<style type="text/css">
+		.everything > featured{
+			display: block;
+			padding-bottom: 1.25rem;
+		}
+		.everything > others > .row{
+			padding-bottom: 1.25rem;
+		}
+	</style>
+</div>

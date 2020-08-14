@@ -1,0 +1,103 @@
+.funnywiki{
+	font-family: "Arial", sans-serif;
+	font-size: 14px;
+}
+.funnywiki .content{
+	    line-height: 1.6;
+}
+table.infobox{
+	background: #f8f9fa;
+	border: 1px solid #a2a9b1;
+	float: right;
+    padding: .2em;
+	font-size: 90%;
+	margin: 20px;
+}
+.toc{
+	background: #f8f9fa;
+	border: 1px solid #a2a9b1;
+	display: table;
+	padding: 7px;
+	font-size: 90%;
+	margin-bottom: 20px;
+}
+.toc > ol{
+	padding-left: 0px;
+}
+.toc ol{
+	counter-reset: section;
+	list-style-type: none;
+}
+.toc ol li:before{
+	counter-increment: section;
+	content: counters(section, ".");
+	padding-right: 0.5em;
+}
+table.infobox th{
+	vertical-align: top;
+	text-align: left;
+	white-space: nowrap;
+    padding-right: 0.65em;
+}
+table.infobox .cool.name th{
+	padding-right: 1px;
+}
+table.infobox .name th{
+	text-align: center;
+	font-size: 15.4px;
+}
+table.infobox .cool{
+	text-align: center;
+}
+.small{
+	font-size: 11px;
+}
+p{
+	font-size: 14px;
+}
+.from{
+	font-size: 13px;
+}
+h1,h2{
+	border-bottom: 1px solid #ccc;
+	font-family: "Georgia";
+	font-weight: normal;
+	overflow: hidden;
+	padding-bottom: 3px;
+}
+h1{
+	font-style: italic;
+	font-size: 1.8em;
+}
+h2{
+	font-size: 1.5em;
+}
+h3{
+	    font-size: 1.2em;
+	    font-weight: bold;
+	    margin-top: 0.3em;
+    margin-bottom: 0;
+    padding-top: 0.5em;
+}
+.infobox img{
+	width: 150px;
+}
+.toc .toc-header{
+	text-align: center;
+}
+.toc .number{
+	padding-right: 10px;
+}
+.toc a{
+	text-decoration: none;
+	color: #0545ae;
+}
+.george{
+	width: 192px;
+}
+.content{
+	padding-top: 0px;
+}
+table{
+	border-collapse: unset;
+}
