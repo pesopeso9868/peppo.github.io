@@ -1,16 +1,16 @@
 ---
 layout: default
 ---
-<style>
-	#strip{
-		width: 100%;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="/assets/css/garfield.css">
 <link href="/assets/css/jquery-ui.min.css" rel="stylesheet">
 <h3>simple garfield strip retriever with jQuery datepicker</h3>
 <hr>
 <div class="alert alert-primary alert-dismissible fade show" role="alert">ever since july 23 2020, the garfield comic strip images have stopped being hosted to cloudflare. let this page (and others) be a reminder of what <a class="alert-link" href="https://web.archive.org/web/20200618082915/https://garfield.com/">garfield.com</a> used to be before being sold out to nick<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
 <div class="form-group">
+	<div class="custom-control custom-switch">
+		<input type="checkbox" class="custom-control-input" id="usacresmode">
+		<label class="custom-control-label" for="usacresmode">U.S. Acres mode</label>
+	</div>
 	<label>Go to:</label>
 	<div class="input-group mb-3">
 		<div class="input-group-prepend">
@@ -32,36 +32,68 @@ layout: default
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
-	var trolled = jQuery.noConflict();
+	//That's just our worst friend, Sicky Sam.
+	//thine peppos, 2020.
+	const trolled = jQuery.noConflict();
 	var _date = new Date();
+	var mode = false;
+	const comicDefs = 
+	{
+		0: {
+			"minDate": "1978-06-19", 
+			"maxDate": "2020-07-22", 
+			"stripFmt": "https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/|/|.gif"
+		},
+		1: {
+			"minDate": "1986-03-03", 
+			"maxDate": "1989-05-07", 
+			"stripFmt": "https://d1ejxu6vysztl5.cloudfront.net/comics/usacres/|/usa|.gif"
+		}
+	}
 	function update(){
-		_date = new Date(Math.max(_date, new Date(1978, 5, 19)));
-		_date = new Date(Math.min(_date, new Date(2020, 6, 22)));
-		var year = _date.getFullYear();
-		trolled("#strip").attr("src","https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/"+year+"/"+trolled.datepicker.formatDate("yy-mm-dd", _date)+".gif");
+		_date = new Date(Math.max(_date, new Date(comicDefs[+mode]["minDate"]+"T00:00:00")));
+		_date = new Date(Math.min(_date, new Date(comicDefs[+mode]["maxDate"]+"T00:00:00")));
+		var year = _date.getUTCFullYear();
+		//this be a heckly trick
+		var sub = comicDefs[+mode]["stripFmt"].split("|");
+		trolled("#strip").attr("src",sub[0]+year+sub[1]+trolled.datepicker.formatDate("yy-mm-dd", _date)+sub[2]);
 		trolled("#striplink").attr("href",trolled("#strip").attr("src"));
+		trolled("#next").prop("disabled", (_date.getTime() + 86400000 > new Date(comicDefs[+mode]["maxDate"]+"T00:00:00").getTime()));
+		trolled("#prev").prop("disabled", (_date.getTime() - 86400000 < new Date(comicDefs[+mode]["minDate"]+"T00:00:00").getTime()));
 	}
 	trolled("#selector").datepicker({
 		onSelect: function(date){
-			_date = new Date(date);
+			_date = new Date(date+"T00:00:00");
 			update();
 		},
 		dateFormat: "yy-mm-dd",
 		showAnim: "slideDown",
-		minDate: new Date(1978, 5, 19),
-		maxDate: new Date(2020, 6, 22),
-		constrainInput: true
+		minDate: "1978-06-19",
+		maxDate: "2020-07-22",
+		constrainInput: true,
+		changeMonth: true,
+		changeYear: true
 	});
 	trolled("#prev").click(function(){
-		_date.setDate(_date.getDate()-1);
+		_date.setUTCDate(_date.getUTCDate()-1);
 		trolled("#selector").datepicker("setDate", _date);
 		update();
 	});
 	trolled("#next").click(function(){
-		_date.setDate(_date.getDate()+1);
+		_date.setUTCDate(_date.getUTCDate()+1);
 		trolled("#selector").datepicker("setDate", _date);
 		update();
 	});
 	update();
 	trolled("#selector").datepicker("setDate", _date);
+	trolled("#usacresmode").change(function(){
+		const oldval = {mode};
+		mode = trolled("#usacresmode").prop("checked");
+		if(oldval!=mode){
+			trolled("#selector").datepicker("option", "maxDate", comicDefs[+mode]["maxDate"]);
+			trolled("#selector").datepicker("option", "minDate", comicDefs[+mode]["minDate"]);
+			trolled("#selector").datepicker("setDate", _date);
+			update();
+		}
+	});
 </script>

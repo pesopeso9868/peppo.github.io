@@ -1,18 +1,27 @@
 ---
 layout: default
 ---
+<style type="text/css">
+	.card-img-top{
+		object-fit: cover;
+		height: 9em;
+	}
+	.card:hover .card-img-top{
+
+	}
+</style>
 <h2>The things I have made along the way</h2>
 <hr>
 <div class="everything">
-	
 	<featured>
 		<div class="card text-center">
 			<div class="card-header">Projet vedette</div>
+			{%assign featured = site.data.projects.projects.featured%}
+			<img src="{{featured.img}}" class="card-img-top img-fluid" alt="{{featured.title}}">
 			<div class="card-body">
-				{%assign featured = site.data.projects.projects.featured%}
 				<h5 class="card-title">{{featured.title}}</h5>
 				<p class="card-text">{{featured.description}}</p>
-				<a href="{{featured.url}}" class="btn btn-primary">Go {{featured.verb}}!</a>
+				<a href="{{featured.url}}" class="btn btn-primary stretched-link">Go {{featured.verb}}!</a>
 			</div>
 		</div>
 	</featured>
@@ -20,10 +29,11 @@ layout: default
 		<div class="card-columns">
 			{%for item in site.data.projects.projects.others%}
 				<div class="card text-center">
+					<img src="{{item.img}}" class="card-img-top img-fluid" alt="{{item.title}}">
 					<div class="card-body">
 						<h5 class="card-title">{{item.title}}</h5>
 						<p class="card-text">{{item.description}}</p>
-						<a href="{{item.url}}" class="btn btn-primary">Go {{item.verb}}!</a>
+						<a href="{{item.url}}" class="btn btn-primary stretched-link">Go {{item.verb}}!</a>
 					</div>
 				</div>
 			{%endfor%}
