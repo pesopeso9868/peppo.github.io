@@ -104,7 +104,7 @@ layout: default
 	trolled("#selector").datepicker("setDate", _date);
 	trolled("#usacresmode").prop("checked", mode);
 	modechange();
-	trolled("#usacresmode").change(modechange());
+	trolled("#usacresmode").change(modechange);
 	trolled("#selector").change(function(){
 		_date = new Date(date+"T00:00:00");
 		update();
