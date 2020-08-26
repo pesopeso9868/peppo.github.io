@@ -61,6 +61,16 @@ layout: default
 		trolled("#next").prop("disabled", (_date.getTime() + 86400000 > new Date(comicDefs[+mode]["maxDate"]+"T00:00:00").getTime()));
 		trolled("#prev").prop("disabled", (_date.getTime() - 86400000 < new Date(comicDefs[+mode]["minDate"]+"T00:00:00").getTime()));
 	}
+	function modechange(){
+		const oldval = {mode};
+		mode = trolled("#usacresmode").prop("checked");
+		if(oldval!=mode){
+			trolled("#selector").datepicker("option", "maxDate", comicDefs[+mode]["maxDate"]);
+			trolled("#selector").datepicker("option", "minDate", comicDefs[+mode]["minDate"]);
+			trolled("#selector").datepicker("setDate", _date);
+			update();
+		}
+	}
 	trolled("#selector").datepicker({
 		onSelect: function(date){
 			_date = new Date(date+"T00:00:00");
@@ -93,16 +103,8 @@ layout: default
 	update();
 	trolled("#selector").datepicker("setDate", _date);
 	trolled("#usacresmode").prop("checked", mode);
-	trolled("#usacresmode").change(function(){
-		const oldval = {mode};
-		mode = trolled("#usacresmode").prop("checked");
-		if(oldval!=mode){
-			trolled("#selector").datepicker("option", "maxDate", comicDefs[+mode]["maxDate"]);
-			trolled("#selector").datepicker("option", "minDate", comicDefs[+mode]["minDate"]);
-			trolled("#selector").datepicker("setDate", _date);
-			update();
-		}
-	});
+	modechange();
+	trolled("#usacresmode").change(modechange());
 	trolled("#selector").change(function(){
 		_date = new Date(date+"T00:00:00");
 		update();
