@@ -108,6 +108,7 @@ layout: default
 		update();
 	})
 	trolled(window).on("unload", function(){
-		document.cookie = `prevsettings=${trolled.datepicker.formatDate("yy-mm-dd",_date)}|${mode}`;
+		//https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#Example_4_Reset_the_previous_cookie
+		document.cookie = `prevsettings=${trolled.datepicker.formatDate("yy-mm-dd",_date)}|${mode}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
 	})
 </script>
