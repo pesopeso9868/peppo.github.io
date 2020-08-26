@@ -84,8 +84,15 @@ layout: default
 		trolled("#selector").datepicker("setDate", _date);
 		update();
 	});
+	const lastsettings = document.cookie.split("; ").find(row=>row.startsWith("prevsettings"))
+	if(lastsettings !== undefined){
+		splutted = lastsettings.split(/\=|\|/)
+		_date = new Date(splutted[1]+"T00:00:00");
+		mode = splutted[2]=="true";
+	}
 	update();
 	trolled("#selector").datepicker("setDate", _date);
+	trolled("#usacresmode").prop("checked", mode);
 	trolled("#usacresmode").change(function(){
 		const oldval = {mode};
 		mode = trolled("#usacresmode").prop("checked");
@@ -96,4 +103,11 @@ layout: default
 			update();
 		}
 	});
+	trolled("#selector").change(function(){
+		_date = new Date(date+"T00:00:00");
+		update();
+	})
+	trolled(window).on("unload", function(){
+		document.cookie = `prevsettings=${trolled.datepicker.formatDate("yy-mm-dd",_date)}|${mode}`;
+	})
 </script>
