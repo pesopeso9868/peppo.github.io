@@ -1,3 +1,18 @@
+@import "bootstrap/bootstrap";
 #strip{
 	width: 100%;
+}
+#garfieldhimself{
+	background: url("/assets/img/garfieldhimself.png");
+	width: 183px;
+	height: 212px;
+	position: absolute;
+	z-index: 1;
+	bottom: 38px;
+	right: 5%;
+}
+@include media-breakpoint-down(lg){
+	#garfieldhimself{
+		display:none;
+	}
 }

@@ -1,35 +1,37 @@
 <header>
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-		<a href="/" class="navbar-brand">
-			<img src="/assets/img/pea.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-			{{site.title}}
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				{% for item in site.data.nav.nav %}
-				{% if item.subnav %}
-				<li class="nav-item dropdown">
-					{% if item.url == page.url %}
-					<a class="nav-link dropdown-toggle active" href="{{item.url}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.title}} <span class="sr-only">(current)</span></a>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+		<div class="container">
+			<a href="/" class="navbar-brand">
+				<img src="/assets/img/pea.svg" width="26" height="26" class="d-inline-block align-top" alt="">
+				{{site.title}}
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					{% for item in site.data.nav.nav %}
+					{% if item.subnav %}
+					<li class="nav-item dropdown">
+						{% if item.url == page.url %}
+						<a class="nav-link dropdown-toggle active" href="{{item.url}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.title}} <span class="sr-only">(current)</span></a>
+						{% else %}
+						<a class="nav-link dropdown-toggle" href="{{item.url}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.title}}</a>
+						{% endif %}
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							{% for subnav_item in item.subnav %}
+							<a class="dropdown-item" href="{{subnav_item.url}}">{{subnav_item.title}}</a>
+							{%endfor%}
+						</div>
+					</li>
 					{% else %}
-					<a class="nav-link dropdown-toggle" href="{{item.url}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{item.title}}</a>
+					{% if item.url == page.url %}
+					<li class="nav-item active"><a class="nav-link" href="{{item.url}}">{{item.title}} <span class="sr-only">(current)</span></a></li>
+					{% else %}
+					<li class="nav-item"><a class="nav-link" href="{{item.url}}">{{item.title}}</a></li>
 					{% endif %}
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						{% for subnav_item in item.subnav %}
-						<a class="dropdown-item" href="{{subnav_item.url}}">{{subnav_item.title}}</a>
-						{%endfor%}
-					</div>
-				</li>
-				{% else %}
-				{% if item.url == page.url %}
-				<li class="nav-item active"><a class="nav-link" href="{{item.url}}">{{item.title}} <span class="sr-only">(current)</span></a></li>
-				{% else %}
-				<li class="nav-item"><a class="nav-link" href="{{item.url}}">{{item.title}}</a></li>
-				{% endif %}
-				{% endif %}
-				{% endfor %}
-			</ul>
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
 		</div>
 	</nav>
 </header>
