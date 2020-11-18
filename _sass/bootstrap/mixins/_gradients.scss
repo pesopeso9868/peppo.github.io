@@ -8,6 +8,16 @@
   }
 }
 
+// inverted gradient
+
+@mixin gradient-bg-inverted($color) {
+  @if $enable-gradients {
+    background: mix($body-bg, $color, 15%) linear-gradient(180deg, $color, mix($body-bg, $color, 15%)) repeat-x;
+  } @else {
+    background-color: mix($body-bg, $color, 15%);
+  }
+}
+
 // Horizontal gradient, from left to right
 //
 // Creates two color stops, start and end, by specifying a color and position for each color stop.

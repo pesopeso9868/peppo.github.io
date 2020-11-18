@@ -5,10 +5,10 @@ nav:
     url: /projects/
     subnav:
       - title: Index
-        url: /projects
+        url: /projects/
       - title: Garfield strip picker
         url: /garfield
       - title: Strong Sad's journal
         url: /sadjournal
   - title: About
-    url: /about
+    url: /about/
