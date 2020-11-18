@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: default_noscript
 ---
 <link rel="stylesheet" type="text/css" href="/assets/css/garfield.css">
 <link href="/assets/css/jquery-ui.min.css" rel="stylesheet">
-<div class="alert alert-primary alert-dismissible fade show hidden" id="note" role="alert">ever since july 23 2020, the garfield comic strip images have stopped being hosted to cloudflare. let this page (and others) be a reminder of what <a class="alert-link" href="https://web.archive.org/web/20200618082915/https://garfield.com/">garfield.com</a> used to be before being sold out to nick<hr>in october 12 2020, the <a class="alert-link" href="https://d1ejxu6vysztl5.cloudfront.net/">cloudfront website</a> that used to host all the garfield and u.s. acres comic strips went down. a source selector was added on garfsharp and this page to reflect the change.<hr>in other news, get the <a class="alert-link" href="https://github.com/pesopeso9868/garfsharp/releases/latest/download/garfsharp.zip">standalone version</a> on your computadora<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+<div class="alert alert-primary alert-dismissible" id="note" role="alert">ever since july 23 2020, the garfield comic strip images have stopped being hosted to cloudflare. let this page (and others) be a reminder of what <a class="alert-link" href="https://web.archive.org/web/20200618082915/https://garfield.com/">garfield.com</a> used to be before being sold out to nick<hr>in october 12 2020, the <a class="alert-link" href="https://d1ejxu6vysztl5.cloudfront.net/">cloudfront website</a> that used to host all the garfield and u.s. acres comic strips went down. a source selector was added on garfsharp and this page to reflect the change.<hr>in other news, get the <a class="alert-link" href="https://github.com/pesopeso9868/garfsharp/releases/latest/download/garfsharp.zip">standalone version</a> on your computadora<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
 <div class="card">
 	<div class="card-header alt">simple garfield strip retriever with jQuery datepicker</div>
 	<div class="card-body">
@@ -33,11 +33,12 @@ layout: default
 				</div>
 			</div>
 		</div>
-		<div class="stripcontainer">
+		<div class="stripcontainer form-group">
 			<a id="striplink">
 				<img alt="Garfield comic strip" src="" id="strip">
 			</a>
 		</div>
+		<a id="shownote" href="#">Show notes</a>
 	</div>
 </div>
 <div id="garfieldhimself"></div>
@@ -151,5 +152,20 @@ layout: default
 	trolled(window).on("unload", function(){
 		//https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#Example_4_Reset_the_previous_cookie
 		document.cookie = `prevsettings=${trolled.datepicker.formatDate("yy-mm-dd",_date)}|${mode}|${source}; expires=Fri, 31 Dec 9999 23:59:59 GMT; Secure`;
+	})
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$("#note").hide()
+	$("#shownote").text("Show notes")
+	$("#shownote").click(function(){
+		$("#note").show()
+		$("#shownote").text("Hide notes")
+	})
+	$("#note").on("close.bs.alert",function(e){
+		e.preventDefault();
+		console.log("lol");
+		$("#note").hide();
+		$("#shownote").text("Show notes");
 	})
 </script>
