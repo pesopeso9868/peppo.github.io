@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome to Thine Peppos</title>
+	<style type="text/css">
+		body, html{
+			min-height: 100%;
+		}
+		body{
+			font-family: "Arial", sans-serif;
+			font-size: 12px;
+			background: #0071BC;
+			margin: 0;
+		}
+		body #brand-logo{
+			width: 182px;
+		}
+		body .container{
+			padding: 8px 0;
+			width: 800px;
+			margin: 0 auto;
+		}
+		body header nav, body footer{
+			display: block;
+			padding: 2px 8px;
+			background: #000;
+			color: #FFF;
+			text-align: center;
+		}
+		body footer{
+			background: #338DC9;
+		}
+		body main{
+			padding: 2px 8px;
+			margin: 16px 0;
+			background: #FFF;
+			color: #000;
+		}
+		/*page-specific css*/
+		body main .columns{
+			display: flex;
+			flex-direction: row;
+		}
+		body main .columns div{
+			flex: 1 1;
+			padding: 5px;
+		}
+		body main .columns div.larger{
+			flex: 1.3 1;
+			border: 1px solid black;
+			border-top: 0;
+			border-bottom: 0;
+		}
+		.item{
+			border-bottom: 1px solid black;
+		}
+		h3{
+			line-height: .5em;
+		}
+		h3, h2{
+			font-family: "Franklin Gothic", "Arial";
+			font-size: 1em;
+			font-weight: normal;
+			color: #338DC9;
+			margin: 0;
+		}
+		h2{
+			font-size: 2em;
+			margin-bottom: 12px;
+		}
+		main .columns .larger div.item img{
+			object-fit: cover;
+			object-position: top;
+			height: 128px;
+			width: 100%;
+		}
+		a, a:link, a:active, a:visited{
+			color: #338DC9;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<img src="/assets/img/thinepeppos.svg" id="brand-logo">
+			<nav>
+				<span>home ... products ... shop ... about</span>
+			</nav>
+		</header>
+		<main>
+			{{content}}
+		</main>
+		<footer>
+			...peppo...2020...
+		</footer>
+	</div>
+</body>

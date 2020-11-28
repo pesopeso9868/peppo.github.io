@@ -21,3 +21,8 @@ projects:
       url: https://github.com/pesopeso9868/wrapper-server
       verb: animate
       img: /assets/img/thumbs/wrapper.png
+    - title: Don't see it ever again
+      description: Save me eyes. An userscript for all browsers.
+      url: /lookdonttouch
+      verb: install it
+      img: /assets/img/thumbs/savemeeyes.png

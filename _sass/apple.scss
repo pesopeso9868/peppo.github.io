@@ -1,0 +1,33 @@
+@import "bootstrap/bootstrap";
+.card-body{
+	font-family: "Myriad Pro", "Helvetica Neue", Arial, sans-serif;
+}
+.presentation{
+	min-height: 384px;
+	padding: 0 5em;
+}
+.presentation .app-icon{
+	float: left;
+	clear: both;
+	height: 256px;
+	margin-right: 1em;
+}
+.presentation h1{
+	font-size: 48px;
+	font-weight: normal;
+}
+.presentation p{
+	font-size: 24px;
+	font-weight: normal;
+}
+.fuck{
+	padding: 2em;
+}
+.presentation .small{
+	font-size: 14px;
+	margin-block-start: -1em;
+	color: gray("600");
+}
+.fuck img{
+	width: 72px;
+}
