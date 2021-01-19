@@ -3,6 +3,7 @@
 	<head>
 		<title>{{site.title}}</title>
 		<link rel="stylesheet" type="text/css" href="/assets/css/sadjournal.css">
+		<link rel="stylesheet" type="text/css" href="/assets/css/monokai.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
@@ -101,7 +102,7 @@
 						{%elsif mood == "the frig?"%}
 						<img src="/assets/img/sadjournal/sadicon7.gif">
 						{%else%}
-						<img src="/assets/img/sadjournal/sadicon{{forloop.index | modulo: 7 | plus: 1}}.gif">
+						<img src="/assets/img/sadjournal/sadicon{{mood | size | modulo: 7 | plus: 1}}.gif">
 						{%endif%}
 						{{mood}}
 					</span></span>

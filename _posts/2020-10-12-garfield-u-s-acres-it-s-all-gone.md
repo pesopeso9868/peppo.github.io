@@ -1,6 +1,6 @@
 ---
 title: "Garfield. U.S. Acres. It's all gone"
-date: 2020-10-12 20:55:00 -0400
+date: 2020-10-12 20:55:00 -0500
 mood: im fucking crying
 tune: Daedelus - Sunflower Stems
 ---
