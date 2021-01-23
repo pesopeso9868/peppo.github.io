@@ -1,0 +1,67 @@
+body,html {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(#3db871,#fff 10%) no-repeat;
+    display: flex;
+    flex-direction: column;
+    font-family: "Tahoma",sans-serif;
+    font-weight: 700;
+    position: relative
+}
+
+#container {
+    flex: 1 1 auto;
+    display: flex;
+    max-height: 85%
+}
+
+#spinner {
+    margin: auto;
+    width: auto;
+    height: 40%;
+    opacity: .51
+}
+
+#rolltext {
+    margin: auto;
+    font-size: 200%;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    width: 14.1235312em
+}
+
+#zombo {
+    flex: 0 0 15%;
+    background: url(zombo.svg) center no-repeat;
+    background-size: contain;
+    width: 100%
+}
+
+.red {
+    color: red
+}
+
+#unmute-overlay {
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background: #00000040
+}
+
+#unmute-overlay span {
+    margin: auto;
+    color: #fff;
+    font-size: 2em
+}
+
+#zombo_words {
+    display: none
+}
