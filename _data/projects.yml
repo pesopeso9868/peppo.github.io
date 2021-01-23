@@ -26,3 +26,8 @@ projects:
       url: /lookdonttouch
       verb: install it
       img: /assets/img/thumbs/savemeeyes.png
+    - title: Welcome to Zombocom
+      verb: watch
+      description: This is Zombocom and welcome to you, have come to Zombocom.
+      url: /zombo
+      img: /assets/img/thumbs/zombo.png
