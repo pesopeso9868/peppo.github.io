@@ -18,8 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: thine peppos
-author: peppo
+title: furcorn
+author: furcorn
 quote: welcome to madvillain bistro bed and breakfast bar grill cafe lounge on the water...
 profile_pic: /assets/img/ric.png
 # Build settings

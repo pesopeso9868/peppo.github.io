@@ -76,11 +76,14 @@ header .content #user-pic{
 	max-height: 100px;
 	max-width: 100px;
 }
-.post-content img{
+.post-content img, .post-content video{
 	border: 2px solid black;
 	max-width: 200px;
 	display: block;
 	margin: 1em 0;
+}
+.post-content video{
+	max-width: 360px;
 }
 header .content #user-info{
 	display: inline-block;

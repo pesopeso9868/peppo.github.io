@@ -6,11 +6,6 @@ projects:
       verb: use it
       img: /assets/img/thumbs/garfield.png
     others:
-    - title: A collaboration with a young man known as typicalname0
-      description: Making of an old era using the Hypertext Processor "PHP"
-      url: https://github.com/typicalname0/youtube-2007-recreation
-      verb: look
-      img: /assets/img/thumbs/youtube07.png
     - title: Strong Sad's Litany of Crushed Hopes and Dreams
       description: Strong Sad's blog. In Jekyll.
       url: /sadjournal
@@ -18,7 +13,7 @@ projects:
       img: /assets/img/thumbs/strongsad.png
     - title: A fork of the Wrapper Server from 2Epik4u
       description: The software weird kids use. I decided to make a fork of it.
-      url: https://github.com/pesopeso9868/wrapper-server
+      url: https://github.com/furcorn/wrapper-server
       verb: animate
       img: /assets/img/thumbs/wrapper.png
     - title: Don't see it ever again
